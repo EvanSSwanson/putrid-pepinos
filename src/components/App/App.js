@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import React, { Component } from 'react';
+import Movies from '../Movies/Movies';
 import movieData from '../../movieData.js';
 import './App.css';
 
@@ -18,8 +19,8 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <h1>Hello</h1>
-        {/* <button onClick={() => console.log(this.state.movies)}>🗑</button> */}
+        <h1>Putrid Pepinos</h1>
+        <Movies movies={this.state.movies}/>
       </main>
   )}
 }
