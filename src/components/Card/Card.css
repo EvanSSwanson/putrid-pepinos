@@ -1,11 +1,17 @@
 .card {
     box-sizing: border-box;
-    border: 3px solid rgb(153, 0, 0);
+    /* border: 3px solid rgb(153, 0, 0); */
     border-radius: .5vw;
     width: 15vw;
     padding: 10px;
     padding-bottom: -1em;
   }
+
+.card-button {
+  border: 3px solid rgb(153, 0, 0);
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 .poster {
     height: 18vw;
