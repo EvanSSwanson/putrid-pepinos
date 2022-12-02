@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Card from '../Card/Card';
 import './Movies.css';
 
-const Movies = ({movies}) => {
+const Movies = ({movies, viewMovie}) => {
 
   const moviesCards = movies.map(movie => {
     const roundedRating = Math.round(movie.average_rating * 10) / 10
@@ -11,11 +11,12 @@ const Movies = ({movies}) => {
         poster={movie.poster_path}
         title={movie.title}
         rating={'Average Rating: ' + roundedRating}
+        viewMovie={viewMovie}
         key={movie.id}
         />
     )
   })
-
+  
   return (
     <div className='movies-container'>
       {moviesCards}
