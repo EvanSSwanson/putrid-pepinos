@@ -20,17 +20,21 @@ class App extends Component {
     this.setState({movies: movieData.movies})
   }
 
-  viewMovie() {
+  viewMovie = () => {
     this.setState({viewFlag: false})
     this.setState({movie: movieData.singleMovie})
+  }
+
+  returnHome = () => {
+    this.setState({viewFlag: true})
   }
 
   render() {
     return (
       <main className="App">
         <h1>Putrid Pepinos</h1>
-        {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie}/>}
-        {!this.state.viewFlag && <SingleMovie movie={this.state.movie} />}
+        {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie} />}
+        {!this.state.viewFlag && <SingleMovie movie={this.state.movie} returnHome={this.returnHome} />}
       </main>
   )
   }

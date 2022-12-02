@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import './SingleMovie.css';
 
 
-const SingleMovie = ({movie}) => {
+const SingleMovie = ({movie, returnHome}) => {
   return (
     <div className="movie-details">
       <header>
-          <button>Return Home</button>
+          <button onClick={() => returnHome()}>Return Home</button>
         </header>
       <h1>{movie.title}</h1>
       <img src={movie.backdrop_path} alt={'Image for' + movie.title} />
