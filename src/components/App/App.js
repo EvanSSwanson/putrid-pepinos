@@ -14,15 +14,18 @@ class App extends Component {
     this.state = {
       movies: [],
       movie: {},
-      viewFlag: true
+      viewFlag: true,
+      isLoading: false,
     }
     this.viewMovie = this.viewMovie.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
+
     fetch(API + QUERY)
       .then(response => response.json())
-      .then(data => this.setState({ movies: data.movies }));
+      .then(data => this.setState({ movies: data.movies, isLoading: false }));
     //this.setState({movies: movieData.movies})
   }
 
@@ -42,7 +45,7 @@ class App extends Component {
         {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie} />}
         {!this.state.viewFlag && <SingleMovie movie={this.state.movie} returnHome={this.returnHome} />}
       </main>
-  )
+   )
   }
 }
 
