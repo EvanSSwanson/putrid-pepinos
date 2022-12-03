@@ -5,6 +5,9 @@ import SingleMovie from '../SingleMovie/SingleMovie';
 import movieData from '../../movieData.js';
 import './App.css';
 
+const API = 'https://rancid-tomatillos.herokuapp.com/api/v2';
+const QUERY = '/movies';
+
 class App extends Component {
   constructor() {
     super()
