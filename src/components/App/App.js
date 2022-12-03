@@ -20,7 +20,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({movies: movieData.movies})
+    fetch(API + QUERY)
+      .then(response => response.json())
+      .then(data => this.setState({ movies: data.movies }));
+    //this.setState({movies: movieData.movies})
   }
 
   viewMovie = () => {
