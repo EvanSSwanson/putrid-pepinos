@@ -1,8 +1,6 @@
-import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
-import movieData from '../../movieData.js';
 import './App.css';
 
 const API = 'https://rancid-tomatillos.herokuapp.com/api/v2';
