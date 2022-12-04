@@ -29,9 +29,12 @@ class App extends Component {
     //this.setState({movies: movieData.movies})
   }
 
-  viewMovie = () => {
+  viewMovie = (id) => {
+    fetch(API + QUERY + "/" + id )
+      .then(response => response.json())
+      .then(data => this.setState({ movie: data.movie, isLoading: false }));
+
     this.setState({viewFlag: false})
-    this.setState({movie: movieData.singleMovie})
   }
 
   returnHome = () => {
@@ -39,6 +42,11 @@ class App extends Component {
   }
 
   render() {
+    const {isLoading} = this.state;
+
+    if (isLoading) {
+      return <p>Loading ...</p>;
+    }
     return (
       <main className="App">
         <h1>Putrid Pepinos</h1>
