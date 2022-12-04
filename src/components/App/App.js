@@ -16,6 +16,7 @@ class App extends Component {
       movie: {},
       viewFlag: true,
       isLoading: false,
+      error: false,
     }
     this.viewMovie = this.viewMovie.bind(this);
   }
@@ -24,9 +25,16 @@ class App extends Component {
     this.setState({ isLoading: true });
 
     fetch(API + QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ movies: data.movies, isLoading: false }));
-    //this.setState({movies: movieData.movies})
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          this.setState({ error: true, isLoading: false })
+          throw new Error('Something went wrong ...');
+        }
+      })
+      .then(data => this.setState({ movies: data.movies, isLoading: false }))
+      .catch(error => console.log(error));
   }
 
   viewMovie = (id) => {
@@ -42,8 +50,10 @@ class App extends Component {
   }
 
   render() {
-    const {isLoading} = this.state;
-
+    const {isLoading, error} = this.state;
+    if (error) {
+      return <p>Something went wrong</p>;
+    }
     if (isLoading) {
       return <p>Loading ...</p>;
     }
