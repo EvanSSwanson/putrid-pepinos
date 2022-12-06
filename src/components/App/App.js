@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Movies from '../Movies/Movies';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import './App.css';
-import { NavLink, Route } from 'react-router-dom';
-
+import { Route, NavLink } from 'react-router-dom';
 
 const API = 'https://rancid-tomatillos.herokuapp.com/api/v2';
 const QUERY = '/movies';
@@ -50,37 +49,20 @@ class App extends Component {
   }
 
   render() {
+  
     return (
       <main className="App">
-        <nav>
-          
-        </nav>
         <h1>Putrid Pepinos</h1>
-        <Route exact path="/movies" render={ () => <Movies movies={this.state.movies} viewMovie={this.viewMovie}/>}/>
-        {/* {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} */}
-        {!this.state.viewFlag && <SingleMovie movie={this.state.movie} returnHome={this.returnHome} />}
+        <Route exact path="/" render={() => <Movies movies={this.state.movies} viewMovie={this.viewMovie}/>} />
+        <Route exact path="/:id" render={({ match }) => {
+            return <SingleMovie movie={this.state.movie} returnHome={this.returnHome}/>;
+          }}
+        />
+
       </main>
-  )}
+   )
+  }
 }
 
 
 export default App;
-
-
-// const {isLoading, error} = this.state;
-//     if (error) {
-//       return <p>Something went wrong</p>;
-//     }
-//     if (isLoading) {
-//       return <p>Loading ...</p>;
-//     }
-//     return (
-//       <main className="App">
-//         <nav>
-
-//         </nav>
-//         <h1>Putrid Pepinos</h1>
-//         {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie} />}
-//         {!this.state.viewFlag && <SingleMovie movie={this.state.movie} returnHome={this.returnHome} />}
-//       </main>
-//    )

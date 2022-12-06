@@ -14,3 +14,6 @@ const Card = ({id, poster, title, rating, viewMovie}) => {
 }
 
 export default Card;
+
+
+//<button onClick={() => viewMovie(id)} className='card-button'>

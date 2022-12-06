@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 import './SingleMovie.css';
 
 
-const SingleMovie = ({movie, returnHome}) => {
+const SingleMovie = ({ movie }) => {
   const roundedRating = Math.round(movie.average_rating * 10) / 10;
   return (
     <div className="movie-details">
       <header>
-          <button onClick={() => returnHome()}>Return Home</button>
+          <button>Return Home</button>
         </header>
       <h1>{movie.title}</h1>
       <img src={movie.backdrop_path} alt={'Image for' + movie.title} />
@@ -24,4 +24,4 @@ const SingleMovie = ({movie, returnHome}) => {
   )
 }
 
-export default SingleMovie
+export default SingleMovie;
