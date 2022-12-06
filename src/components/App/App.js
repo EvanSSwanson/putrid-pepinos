@@ -49,16 +49,14 @@ class App extends Component {
   }
 
   render() {
-  
     return (
       <main className="App">
         <h1>Putrid Pepinos</h1>
-        <Route exact path="/" render={() => <Movies movies={this.state.movies} viewMovie={this.viewMovie}/>} />
+        <Route exact path="/" render={() => <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} />
         <Route exact path="/:id" render={({ match }) => {
-            return <SingleMovie movie={this.state.movie} returnHome={this.returnHome}/>;
+            return <SingleMovie movieId={match.params.id}/>;
           }}
         />
-
       </main>
    )
   }
