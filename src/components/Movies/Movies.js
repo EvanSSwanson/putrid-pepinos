@@ -13,6 +13,7 @@ const Movies = ({movies, viewMovie}) => {
         rating={'Average Rating: ' + roundedRating}
         viewMovie={viewMovie}
         key={movie.id}
+        id={movie.id}
         />
     )
   })
