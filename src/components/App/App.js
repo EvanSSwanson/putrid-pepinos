@@ -59,11 +59,9 @@ class App extends Component {
     return (
       <main className="App">
         <h1>Putrid Pepinos</h1>
-        <Route exact path="/" render={() => <Movies movies={this.state.movies}/>} />
+        <Route exact path="/" render={() => <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} />
         <Route exact path="/:id" render={({ match }) => {
-          const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-          this.viewMovie(match.params.id)
-            return <SingleMovie movie={this.state.movie} />;
+            return <SingleMovie movie={this.state.movie} returnHome={this.returnHome} />;
           }}
         />
         {/* {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} */}
