@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import "./SingleMovie.css";
 import { NavLink } from "react-router-dom";
 
+class SingleMovie extends Component {
+  constructor() {
+    super();
+    this.state = {
+      movie: {},
+    };
+  }
 
   componentDidMount() {
     fetch(
