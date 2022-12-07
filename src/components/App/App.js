@@ -49,25 +49,14 @@ class App extends Component {
   }
 
   render() {
-    //const {isLoading, error} = this.state;
-    // if (error) {
-    //   return <p>Something went wrong</p>;
-    // }
-    // if (isLoading) {
-    //   return <p>Loading ...</p>;
-    // }
     return (
       <main className="App">
         <h1>Putrid Pepinos</h1>
-        <Route exact path="/" render={() => <Movies movies={this.state.movies}/>} />
+        <Route exact path="/" render={() => <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} />
         <Route exact path="/:id" render={({ match }) => {
-          const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-          this.viewMovie(match.params.id)
-            return <SingleMovie movie={this.state.movie} />;
+            return <SingleMovie movieId={match.params.id}/>;
           }}
         />
-        {/* {this.state.viewFlag && <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} */}
-        {/* {!this.state.viewFlag && <SingleMovie movie={this.state.movie} returnHome={this.returnHome} />} */}
       </main>
    )
   }

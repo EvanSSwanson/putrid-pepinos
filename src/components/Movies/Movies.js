@@ -8,7 +8,7 @@ const Movies = ({movies, viewMovie}) => {
   const moviesCards = movies.map(movie => {
     const roundedRating = Math.round(movie.average_rating * 10) / 10
     return (
-      <div>
+      <div key={movie.id}>
         <NavLink to={`${movie.id}`} className="nav">
           <Card
             poster={movie.poster_path}
