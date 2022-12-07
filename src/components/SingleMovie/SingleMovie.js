@@ -1,27 +1,52 @@
-import React, { Fragment } from 'react';
-import './SingleMovie.css';
+import React, { Component } from "react";
+import "./SingleMovie.css";
+import { NavLink } from "react-router-dom";
 
+class SingleMovie extends Component {
+  constructor() {
+    super();
+    this.state = {
+      movie: {},
+    };
+  }
 
-const SingleMovie = ({ movie }) => {
-  const roundedRating = Math.round(movie.average_rating * 10) / 10;
-  return (
-    <div className="movie-details">
-      <header>
-          <button>Return Home</button>
+  componentDidMount() {
+    fetch(
+      `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieId}`
+    )
+      .then((response) => response.json())
+      .then((data) => this.setState({ movie: data.movie }));
+  }
+
+  render() {
+    const roundedRating = Math.round(this.state.movie.average_rating * 10) / 10;
+    return (
+      <div className="movie-details">
+        <header>
+          <NavLink to="/" className="nav">
+            <button className="return-button">Return Home</button>
+          </NavLink>
         </header>
-      <h1>{movie.title}</h1>
-      <img src={movie.backdrop_path} alt={'Image for' + movie.title} />
-      <img src={movie.poster_path} alt={'Image for' + movie.title} />
-      <p>Overview: {movie.overview}</p>
-      <p>Genres: {movie.genres}</p>
-      <p>Budget: {movie.budget}</p>
-      <p>Revenue: {movie.revenue}</p>
-      <p>Runtime: {movie.runtime}</p>
-      <p>Tagline: {movie.tagline}</p>
-      <p>Release Date: {movie.release_date}</p>
-      <p>Rating: {roundedRating}</p> 
-    </div>
-  )
+        <h1>{this.state.movie.title}</h1>
+        <img
+          src={this.state.movie.backdrop_path}
+          alt={"Image for" + this.state.movie.title}
+        />
+        <img
+          src={this.state.movie.poster_path}
+          alt={"Image for" + this.state.movie.title}
+        />
+        <p>Overview: {this.state.movie.overview}</p>
+        <p>Genres: {this.state.movie.genres}</p>
+        <p>Budget: ${this.state.movie.budget}</p>
+        <p>Revenue: ${this.state.movie.revenue}</p>
+        <p>Runtime: {this.state.movie.runtime} minutes</p>
+        <p>Tagline: {this.state.movie.tagline}</p>
+        <p>Release Date: {this.state.movie.release_date}</p>
+        <p>Rating: {roundedRating}</p>
+      </div>
+    );
+  }
 }
 
 export default SingleMovie;
