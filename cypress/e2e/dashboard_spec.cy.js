@@ -9,20 +9,36 @@ describe('Homepage Test', () => {
   it('Should have a title', () => {
     cy.contains('h1', 'Putrid Pepinos')
   })
-  it('Show all the available movies', () => {
+  it('Should load 4 movies', () => {
     cy.get('.movies-container').within(() => {
       cy.get('.movie-card').should('have.length', 4)
+    })
+  })
+  it('Should show the Money Plane card', () => {
+    cy.get('.movies-container').within(() => {
       cy.get('.movie-card').eq(0).should('contain', 'Money Plane')
         .and('contain', '6.7')
       cy.get('.poster').eq(0).should('be.visible')
+    })
+  })
+  it('Should show the Mulan card', () => {
+    cy.get('.movies-container').within(() => {
       cy.get('.movie-card').eq(1).should('contain', 'Mulan')
         .and('contain', '4.9')
       cy.get('.poster').eq(1).should('be.visible')
+    })
+  })
+  it('Should show the Rogue card', () => {
+    cy.get('.movies-container').within(() => {
       cy.get('.movie-card').eq(2).should('contain', 'Rogue')
         .and('contain', '5.4')
       cy.get('.poster').eq(2).should('be.visible')
+    })
+  })
+  it('Should show the Ava card', () => {
+    cy.get('.movies-container').within(() => {
       cy.get('.movie-card').eq(3).should('contain', 'Ava')
-        .and('contain', '5.1')
+      .and('contain', '5.1')
       cy.get('.poster').eq(3).should('be.visible')
     })
   })
