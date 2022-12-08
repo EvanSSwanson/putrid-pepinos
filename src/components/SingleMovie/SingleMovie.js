@@ -28,11 +28,11 @@ class SingleMovie extends Component {
           </NavLink>
         </header>
         <h1>{this.state.movie.title}</h1>
-        <img
+        <img className="backdrop"
           src={this.state.movie.backdrop_path}
           alt={"Image for" + this.state.movie.title}
         />
-        <img
+        <img className="poster"
           src={this.state.movie.poster_path}
           alt={"Image for" + this.state.movie.title}
         />
