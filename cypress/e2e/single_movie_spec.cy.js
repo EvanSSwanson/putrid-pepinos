@@ -1,45 +1,44 @@
 describe('Single Movie Test', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/539885');
+        cy.visit('http://localhost:3000/436270');
       })
     it('Should have a title', () => {
         cy.contains('h1', 'Putrid Pepinos')
-        cy.contains('h1', 'Ava')
+        cy.contains('h1', 'Black Adam')
     })
     it('Should display an Overview', () => {
         cy.get('.movie-details').should('contain', 'Overview')
-            .and('contain', 'assassin')
+            .and('contain', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
     })
     it('Should display Genres', () => {
         cy.get('.movie-details').should('contain', 'Genres')
             .and('contain', 'Action')
-            .and('contain', 'Crime')
-            .and('contain', 'Drama')
-            .and('contain', 'Thriller')
+            .and('contain', 'Fantasy')
+            .and('contain', 'Science Fiction')
     })
     it('Should display a Budget', () => {
         cy.get('.movie-details').should('contain', 'Budget')
-            .and('contain', '$0')
+            .and('contain', '$200000000')
     })
     it('Should display a Revenue', () => {
         cy.get('.movie-details').should('contain', 'Revenue')
-            .and('contain', '$152812')
+            .and('contain', '$384571691')
     })
     it('Should display a Runtime', () => {
         cy.get('.movie-details').should('contain', 'Runtime')
-            .and('contain', '96 minutes')
+            .and('contain', '125 minutes')
     })
     it('Should display a Tagline', () => {
         cy.get('.movie-details').should('contain', 'Tagline')
-            .and('contain', 'Kill. Or be killed.')
+            .and('contain', 'The world needed a hero. It got Black Adam.')
     })
     it('Should display a Release Date', () => {
         cy.get('.movie-details').should('contain', 'Release Date')
-            .and('contain', '2020-07-02')
+            .and('contain', '2022-10-19')
     })
     it('Should display a Rating', () => {
         cy.get('.movie-details').should('contain', 'Rating')
-            .and('contain', '5.9')
+            .and('contain', '4')
     })
     it('Should display both images ', () => {
         cy.get('.movie-details').within(() => {
