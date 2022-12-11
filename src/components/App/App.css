@@ -1,17 +1,29 @@
 .App {
+  margin: none;
   text-align: center;
+  color:azure;
+  background-color:#222222;
+  font-family: 'Kanit';
 }
 
-.App-logo {
+.putrid-title {
+  font-family: 'Gravitas One';
+  color: #49C11C;
+  -webkit-text-stroke: .2vw #55DD22;
+  /* color: #FFD723;
+  -webkit-text-stroke: .2vw rgb(255, 234, 0); */
+  font-size: 4vw;
+}
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 .single-movie {
   text-align: center;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -39,4 +51,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

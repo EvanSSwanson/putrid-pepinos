@@ -4,11 +4,13 @@ import './Card.css';
 const Card = ({id, poster, title, rating, viewMovie}) => {
   return (
     <div className='card'>
-      <button className='card-button'>
+      {/* <button className='card-button'> */}
         <img src={poster} className='poster' alt={'Poster of ' + title}/>  
-        <h3>{title}</h3>
-        <p>{rating}</p>
-      </button>
+        <div classname='text-container'>
+          <h3>{title}</h3>
+          <p>{rating}</p>
+        </div>
+      {/* </button> */}
     </div>
   )
 }

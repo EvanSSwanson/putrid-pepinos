@@ -51,7 +51,7 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <h1>Putrid Pepinos</h1>
+        <h1 className='putrid-title'>Putrid Pepinos</h1>
         <Route exact path="/" render={() => <Movies movies={this.state.movies} viewMovie={this.viewMovie} />} />
         <Route exact path="/:id" render={({ match }) => {
             return <SingleMovie movieId={match.params.id}/>;
