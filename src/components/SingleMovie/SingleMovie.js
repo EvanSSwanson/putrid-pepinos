@@ -1,51 +1,73 @@
-import React, { Component } from "react";
-import "./SingleMovie.css";
-import { NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import './SingleMovie.css';
 
 class SingleMovie extends Component {
   constructor() {
     super();
     this.state = {
       movie: {},
+      isLoading: false,
+      error: false
     };
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     fetch(
       `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.movieId}`
     )
-      .then((response) => response.json())
-      .then((data) => this.setState({ movie: data.movie }));
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        this.setState({ error: true})
+        throw new Error('Something went wrong ...');
+      }
+    })
+      .then((data) => this.setState({ movie: data.movie, isLoading: false}))
   }
 
   render() {
-    const roundedRating = Math.round(this.state.movie.average_rating * 10) / 10;
-    return (
-      <div className="movie-details">
-        <header>
-          <NavLink to="/" className="nav">
-            <button className="return-button">Return Home</button>
-          </NavLink>
-        </header>
-        <h1>{this.state.movie.title}</h1>
-        <img className="backdrop"
-          src={this.state.movie.backdrop_path}
-          alt={"Image for" + this.state.movie.title}
-        />
-        <img className="poster"
-          src={this.state.movie.poster_path}
-          alt={"Image for" + this.state.movie.title}
-        />
-        <p>Overview: {this.state.movie.overview}</p>
-        <p>Genres: {this.state.movie.genres}</p>
-        <p>Budget: ${this.state.movie.budget}</p>
-        <p>Revenue: ${this.state.movie.revenue}</p>
-        <p>Runtime: {this.state.movie.runtime} minutes</p>
-        <p>Tagline: {this.state.movie.tagline}</p>
-        <p>Release Date: {this.state.movie.release_date}</p>
-        <p>Rating: {roundedRating}</p>
-      </div>
-    );
+    if (this.state.isLoading === true) {
+      return (
+        <h2>Loading...</h2>
+      )
+    } else if (this.state.error === true) {
+      return (
+        <h2>This movie's data cannot be found.</h2>
+      )
+    } else {
+      const roundedRating = Math.round(this.state.movie.average_rating * 10) / 10;
+      return (
+        <div className='movie-details'  style={{
+          backgroundImage: `url(${this.state.movie.backdrop_path})`,
+          backgroundSize: 'cover' }}>
+          <div className='single-movie-container'>
+            <h1 className='single-title'>{this.state.movie.title}</h1>
+            <div className='content-container'>
+              <div className='left-container'>
+                <img className='single-poster'
+                  src={this.state.movie.poster_path}
+                  alt={'Image for' + this.state.movie.title}
+                />
+                <h2>{this.state.movie.tagline}</h2>
+              </div>
+              <div className='right-container'>
+                <div className='overview-container'>
+                  <p className='overview'>{this.state.movie.overview}</p>
+                </div>
+                <p>Budget: ${this.state.movie.budget}</p>
+                <p>Revenue: ${this.state.movie.revenue}</p>
+                <p>Runtime: {this.state.movie.runtime} minutes</p>
+                <p>Release Date: {this.state.movie.release_date}</p>
+                <p>Average Rating: {roundedRating}</p>
+                <p>Genres: {this.state.movie.genres}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

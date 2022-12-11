@@ -1,20 +1,25 @@
 .card {
-    box-sizing: border-box;
-    /* border: 3px solid rgb(153, 0, 0); */
-    border-radius: .5vw;
-    width: 15vw;
-    padding: 10px;
-    padding-bottom: -1em;
-  }
+  box-sizing: border-box;
+  height: 28vw;
+  border-radius: .5vw;
+  width: 15vw;
+  padding: 10px;
+  padding-bottom: -1em;
+  color: azure;
+}
 
-.card-button {
-  border: 3px solid rgb(153, 0, 0);
-  border-radius: 4px;
-  cursor: pointer;
+.card:hover {
+  background-color: #141414;
+  transform: scale(1.2);
+  transition: all ease-in-out .3s;
 }
 
 .poster {
-    height: 18vw;
-    width: 13vw;
-    border-radius: .5vw;
+  height: 18vw;
+  width: 13vw;
+  border-radius: .5vw;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
 }
