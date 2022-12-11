@@ -1,0 +1,49 @@
+.single-movie-container {
+    background-color: rgba(45, 45, 45, 0.6);
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    height: 40vw;
+}
+
+.left-container {
+    margin-left: 7vw;
+    width: 25%;
+}
+
+p {
+    font-size: 1vw;
+}
+
+.right-container {
+    display: flex;
+    background-color: rgba(45, 45, 45, 0.7);
+    margin-right: 7vw;
+    margin-bottom: 4vw;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overview-container {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    height: 15vw;
+}
+
+.overview {
+    font-size: 1.2vw;
+}
+
+.single-title {
+    margin-top: -1vw;
+    font-size: 3.5vw;
+    margin-bottom: 0vw;
+}
+
+.single-poster {
+    height: 30vw;
+    width: 20vw;
+}

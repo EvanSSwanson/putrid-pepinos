@@ -1,21 +1,16 @@
 import React from 'react';
 import './Card.css';
 
-const Card = ({id, poster, title, rating, viewMovie}) => {
+const Card = ({id, poster, title, rating}) => {
   return (
-    <div className='card'>
-      {/* <button className='card-button'> */}
+    <div className='card' id={id}>
         <img src={poster} className='poster' alt={'Poster of ' + title}/>  
         <div classname='text-container'>
           <h3>{title}</h3>
           <p>{rating}</p>
         </div>
-      {/* </button> */}
     </div>
   )
 }
 
 export default Card;
-
-
-//<button onClick={() => viewMovie(id)} className='card-button'>
