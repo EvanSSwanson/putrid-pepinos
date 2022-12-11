@@ -14,31 +14,31 @@ describe('Homepage Test', () => {
       cy.get('.movie-card').should('have.length', 4)
     })
   })
-  it('Should show the Money Plane card', () => {
+  it('Should show the Black Adam card', () => {
     cy.get('.movies-container').within(() => {
-      cy.get('.movie-card').eq(0).should('contain', 'Money Plane')
-        .and('contain', '6.7')
+      cy.get('.movie-card').eq(0).should('contain', 'Black Adam')
+        .and('contain', '4')
       cy.get('.poster').eq(0).should('be.visible')
     })
   })
-  it('Should show the Mulan card', () => {
+  it('Should show the The Woman King card', () => {
     cy.get('.movies-container').within(() => {
-      cy.get('.movie-card').eq(1).should('contain', 'Mulan')
-        .and('contain', '4.9')
+      cy.get('.movie-card').eq(1).should('contain', 'The Woman King')
+        .and('contain', '4')
       cy.get('.poster').eq(1).should('be.visible')
     })
   })
-  it('Should show the Rogue card', () => {
+  it('Should show the R.I.P.D. 2: Rise of the Damned card', () => {
     cy.get('.movies-container').within(() => {
-      cy.get('.movie-card').eq(2).should('contain', 'Rogue')
-        .and('contain', '5.4')
+      cy.get('.movie-card').eq(2).should('contain', 'R.I.P.D. 2: Rise of the Damned')
+        .and('contain', '7')
       cy.get('.poster').eq(2).should('be.visible')
     })
   })
-  it('Should show the Ava card', () => {
+  it('Should show the Black Panther: Wakanda Forever card', () => {
     cy.get('.movies-container').within(() => {
-      cy.get('.movie-card').eq(3).should('contain', 'Ava')
-      .and('contain', '5.1')
+      cy.get('.movie-card').eq(3).should('contain', 'Black Panther: Wakanda Forever')
+      .and('contain', '4')
       cy.get('.poster').eq(3).should('be.visible')
     })
   })
@@ -46,24 +46,24 @@ describe('Homepage Test', () => {
     cy.intercept(
       {
         method: "POST",
-        url: "http://localhost:3000/movies/337401",
+        url: "http://localhost:3000/movies/724495",
       },
       {
-        id: 337401,
-        title: "Mulan",
+        id: 724495,
+        title: "The Woman King",
         backdrop_path:
-          "https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg",
-        release_date: "2020-09-04",
+          "https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
+        release_date: "2022-09-15",
         overview:
-          "When the Emperor of China issues a decree that one man per family must serve in the Imperial Chinese Army to defend the country from Huns, Hua Mulan, the eldest daughter of an honored warrior, steps in to take the place of her ailing father. She is spirited, determined and quick on her feet. Disguised as a man by the name of Hua Jun, she is tested every step of the way and must harness her innermost strength and embrace her true potential.",
-        genres: ["Action", "Adventure", "Drama", "Fantasy"],
-        budget: 200000000,
-        revenue: 57000000,
-        runtime: 115,
-        tagline: "",
-        average_rating: 5.1,
+          "The story of the Agojie, the all-female unit of warriors who protected the African Kingdom of Dahomey in the 1800s with skills and a fierceness unlike anything the world has ever seen, and General Nanisca as she trains the next generation of recruits and readies them for battle against an enemy determined to destroy their way of life.",
+        genres: ["Action", "Drama", "History"],
+        budget: 50000000,
+        revenue: 91000000,
+        runtime: 135,
+        tagline: "Her reign begins.",
+        average_rating: 4,
       }
-    ).get('.movie-card').eq(1).click().url().should('include', '/337401')
+    ).get('.movie-card').eq(1).click().url().should('include', '/724495')
   });
 })
 
