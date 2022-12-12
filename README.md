@@ -50,6 +50,6 @@ This project was completed during our second week in MOD 3 at Turing. It was our
 
 ### Contributors
 
-- [Evan Swanson](https://github.com/EvanSSwanson),[LinkedIn](https://www.linkedin.com/in/evan-swanson-5baa80158/))
-- [Joshua Pierce](https://github.com/JPierce28),[LinkedIn](https://www.linkedin.com/in/joshua-pierce-534137250/))
-- [Jeffrey Cook](https://github.com/JCookDev)[LinkedIn](https://www.linkedin.com/in/j-cook-jr/))
+- [Evan Swanson](https://github.com/EvanSSwanson), [LinkedIn](https://www.linkedin.com/in/evan-swanson-5baa80158/)
+- [Joshua Pierce](https://github.com/JPierce28), [LinkedIn](https://www.linkedin.com/in/joshua-pierce-534137250/)
+- [Jeffrey Cook](https://github.com/JCookDev), [LinkedIn](https://www.linkedin.com/in/j-cook-jr/)
