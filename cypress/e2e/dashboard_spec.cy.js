@@ -19,6 +19,10 @@ describe('Homepage Test', () => {
       cy.get('.movie-card').eq(0).should('contain', 'Black Adam')
         .and('contain', '4')
       cy.get('.poster').eq(0).should('be.visible')
+      cy.get('.poster').eq(0)
+        .should(([img]) => {
+            expect(img.alt).contains('Poster of Black Adam')
+        })
     })
   })
   it('Should show the The Woman King card', () => {
@@ -26,6 +30,10 @@ describe('Homepage Test', () => {
       cy.get('.movie-card').eq(1).should('contain', 'The Woman King')
         .and('contain', '4')
       cy.get('.poster').eq(1).should('be.visible')
+      cy.get('.poster').eq(1)
+        .should(([img]) => {
+            expect(img.alt).contains('Poster of The Woman King')
+        })
     })
   })
   it('Should show the R.I.P.D. 2: Rise of the Damned card', () => {
@@ -33,6 +41,10 @@ describe('Homepage Test', () => {
       cy.get('.movie-card').eq(2).should('contain', 'R.I.P.D. 2: Rise of the Damned')
         .and('contain', '7')
       cy.get('.poster').eq(2).should('be.visible')
+      cy.get('.poster').eq(2)
+        .should(([img]) => {
+            expect(img.alt).contains('Poster of R.I.P.D. 2: Rise of the Damned')
+        })
     })
   })
   it('Should show the Black Panther: Wakanda Forever card', () => {
@@ -40,6 +52,10 @@ describe('Homepage Test', () => {
       cy.get('.movie-card').eq(3).should('contain', 'Black Panther: Wakanda Forever')
       .and('contain', '4')
       cy.get('.poster').eq(3).should('be.visible')
+      cy.get('.poster').eq(3)
+        .should(([img]) => {
+            expect(img.alt).contains('Poster of Black Panther: Wakanda Forever')
+        })
     })
   })
   it("Should show the details of the movie when the movie is clicked on", () => {
