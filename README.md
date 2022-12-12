@@ -35,7 +35,8 @@ You can visit the live site [here](https://putridpepinos.netlify.app/).
 
 ## Learning Goals
 - Get comfortable building modern UIs using React.
-- Become familiar with using React Router.
+- Practice refactoring
+- Create a multi-page UX using Router.
 - Practice testing a React application with Cypress including: acceptance testing, happy and sad path user flows that require network requests.
 - Become familiar with deploying production web-apps
 
