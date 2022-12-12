@@ -48,7 +48,7 @@ class SingleMovie extends Component {
               <div className='left-container'>
                 <img className='single-poster'
                   src={this.state.movie.poster_path}
-                  alt={'Image for' + this.state.movie.title}
+                  alt={'Image for ' + this.state.movie.title}
                 />
                 <h2>{this.state.movie.tagline}</h2>
               </div>

@@ -7,8 +7,7 @@ describe('Single Movie Test', () => {
         cy.contains('h1', 'Black Adam')
     })
     it('Should display an Overview', () => {
-        cy.get('.movie-details').should('contain', 'Overview')
-            .and('contain', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
+        cy.get('.overview').should('contain', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
     })
     it('Should display Genres', () => {
         cy.get('.movie-details').should('contain', 'Genres')
@@ -29,8 +28,7 @@ describe('Single Movie Test', () => {
             .and('contain', '125 minutes')
     })
     it('Should display a Tagline', () => {
-        cy.get('.movie-details').should('contain', 'Tagline')
-            .and('contain', 'The world needed a hero. It got Black Adam.')
+        cy.get('.left-container').should('contain', 'The world needed a hero. It got Black Adam.')
     })
     it('Should display a Release Date', () => {
         cy.get('.movie-details').should('contain', 'Release Date')
@@ -40,10 +38,15 @@ describe('Single Movie Test', () => {
         cy.get('.movie-details').should('contain', 'Rating')
             .and('contain', '4')
     })
-    it('Should display both images ', () => {
+    it('Should display the poster image ', () => {
         cy.get('.movie-details').within(() => {
-            cy.get('.poster').should('be.visible')
-            cy.get('.backdrop').should('be.visible')
+            cy.get('.single-poster').should('be.visible')
       })
+    })
+    it('Should display the alt image if the poster is missing', () => {
+        cy.get('.single-poster')
+        .should(([img]) => {
+            expect(img.alt).contains('Image for Black Adam')
+        })
     })
   })
